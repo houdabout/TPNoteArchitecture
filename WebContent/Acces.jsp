@@ -4,20 +4,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>LoginOperateur</title>
+<title>Insert title here</title>
 </head>
 <body>
 
-<h1>login verification operateur</h1>
+<h1>Access car</h1>
 
 
-<form action="Login" method="get">
+<form action="" method="get">
 
-Enter username : <input type="text" name="uname"/>
-<br/>Enter Password : <input type="password" name="pass"/>
+Importer image : <input type="file" name="img"/>
+Enter Plaque : <input type="text" name="plaque"/>
 
-<br/><input type="submit" value="login"/>
+
+<br/><input type="submit" value="visualiser"/>
   </form>
+
+
 
 </body>
 </html>

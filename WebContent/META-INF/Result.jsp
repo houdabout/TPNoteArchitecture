@@ -4,20 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>LoginOperateur</title>
+<title>Insert title here</title>
 </head>
 <body>
 
-<h1>login verification operateur</h1>
+
+<h1>Resultat</h1>
 
 
-<form action="Login" method="get">
+<form action="" method="get">
 
 Enter username : <input type="text" name="uname"/>
-<br/>Enter Password : <input type="password" name="pass"/>
 
+<br/>Enter Password : <input type="password" name="pass"/>
 <br/><input type="submit" value="login"/>
   </form>
-
 </body>
 </html>
