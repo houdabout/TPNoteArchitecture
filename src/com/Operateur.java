@@ -1,6 +1,8 @@
 package com;
 
+
 import java.sql.*;
+
 
 public class Operateur {
 
@@ -26,7 +28,7 @@ public class Operateur {
             System.out.println("Pilote non trouvee!");
             System.exit(1);
         }
-        Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/tpnote", "root", "");
+        Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/parking", "root", "");
         PreparedStatement ps = c.prepareStatement("SELECT op FROM Operateur op WHERE username=? AND password=?;");
         ps.setString(1, username);
         ps.setString(2, password);
