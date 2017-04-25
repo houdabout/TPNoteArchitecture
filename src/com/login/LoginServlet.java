@@ -1,10 +1,13 @@
 package com.login;
 
+import com.Operateur;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Servlet implementation class LoginServlet
@@ -20,30 +23,28 @@ public class LoginServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        response.getWriter().append("Served at: ").append(request.getContextPath());
-
-        String uname = request.getParameter("uname");
-        String pass = request.getParameter("pass");
-
-
-        if (uname.equals("houda") && pass.equals("bout"))
-
-        {
-            response.sendRedirect("welcome.jsp");
-        }
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.service(req, resp);
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        doGet(request, response);
-    }
+        String username = request.getParameter("username");
+        String pass = request.getParameter("password");
 
+        Operateur op = new Operateur(username);
+
+        try {
+            if (op.checkPassword(pass)) {
+                response.sendRedirect("welcome.jsp");
+            } else {
+                response.sendRedirect("login.jsp?error");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
