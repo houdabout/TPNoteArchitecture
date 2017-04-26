@@ -42,7 +42,7 @@ ResultSet resultSet = null;
 try{ 
 connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
 statement=connection.createStatement();
-String sql ="SELECT * FROM Operateur";
+String sql ="select nom,voitureplaque ,date ,image ,prenom from Operateur join Acces join Voiture join Proprietaire where id.Operateur=operateurid.Acces and voitureplaque.Access=plaque.Voitureand proprietaireid.Voiture=id.Proprietaire and id.Acces=getString("id")";
 
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
