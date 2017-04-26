@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>LoginOperateur</title>
 </head>
-<body>
+<body BGCOLOR=#FBEFEF>
 
 <h1>login verification operateur</h1>
 

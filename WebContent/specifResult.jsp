@@ -7,14 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%! String username ,pass; %>
-<% 
-username= request.getParameter("username");
-pass= request.getParameter("pass");
 
-%>
-Welcome , <%=username %>
-<br/>
-your password is : <%= pass %>
 </body>
 </html>
