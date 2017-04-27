@@ -1,7 +1,9 @@
-package com.login;
+package com.controller;
 
-import com.Operateur;
+import com.model.Operateur;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,15 +13,15 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class LoginController
  */
-public class LoginServlet extends HttpServlet {
+public class LoginController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public LoginController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,13 +46,20 @@ public class LoginServlet extends HttpServlet {
             if (op.checkPassword(pass)) {
                 session.setAttribute("operateur", op);
                 session.setAttribute("authenticated", true);
-                response.sendRedirect("Acces.jsp");
+                forward(request, response, "/operateur/Acces.jsp");
             } else {
                 session.setAttribute("authenticated", false);
-                response.sendRedirect("login.jsp?error");
+                request.setAttribute("error", "Login did not work");
+                forward(request, response, "/Error.jsp");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void forward(HttpServletRequest request, HttpServletResponse response, String page) throws ServletException, IOException {
+        ServletContext sc = getServletContext();
+        RequestDispatcher rd = sc.getRequestDispatcher(page);
+        rd.forward(request, response);
     }
 }

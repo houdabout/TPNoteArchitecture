@@ -1,4 +1,4 @@
-package com;
+package com.model;
 
 import java.sql.*;
 
@@ -8,6 +8,9 @@ public class Proprietaire {
     private String nom;
     private String prenom;
     private int age;
+
+    public Proprietaire() {
+    }
 
     public Proprietaire(int id, String nom, String prenom, int age) {
         this.id = id;

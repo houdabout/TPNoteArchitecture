@@ -1,4 +1,4 @@
-package com;
+package com.model;
 
 import java.sql.*;
 
@@ -60,7 +60,7 @@ public class Voiture {
             System.exit(1);
         }
         Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/parking", "root", "");
-        PreparedStatement ps = c.prepareStatement("SELECT plaque, marque, serie, proprietaire FROM Voiture WHERE plaque=?;");
+        PreparedStatement ps = c.prepareStatement("SELECT plaque, marque, serie, idProp FROM Voiture WHERE plaque=?;");
         ps.setString(1, plaque);
         ResultSet set = ps.executeQuery();
         if (set.next()) {

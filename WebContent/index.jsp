@@ -13,9 +13,9 @@
 
 <h1><a href="login.jsp">Login</a></h1>
 
-<h1><a href="Acces.jsp">Ajouter acces</a></h1>
+<h1><a href="operateur/Acces.jsp">Ajouter acces</a></h1>
 
-<h1><a href="specifResult.jsp">Tous les acces</a></h1>
+<h1><a href="operateur/search.jsp">Tous les acces</a></h1>
 
 </body>
 </html>

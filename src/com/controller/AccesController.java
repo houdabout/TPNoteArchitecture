@@ -1,9 +1,9 @@
-package com.login;
+package com.controller;
 
-import com.Acces;
-import com.Operateur;
-import com.Proprietaire;
-import com.Voiture;
+import com.model.Acces;
+import com.model.Operateur;
+import com.model.Proprietaire;
+import com.model.Voiture;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -16,17 +16,17 @@ import java.sql.SQLException;
 import java.util.Date;
 
 /**
- * Servlet implementation class AccesServlet
+ * Servlet implementation class AccesController
  */
 
 @MultipartConfig(maxFileSize = 16177215)
-public class AccesServlet extends HttpServlet {
+public class AccesController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AccesServlet() {
+    public AccesController() {
         super();
     }
 
@@ -42,15 +42,20 @@ public class AccesServlet extends HttpServlet {
         if (imagePart != null && plaque != null) {
             InputStream filecontent = null;
             filecontent = imagePart.getInputStream();
-            Acces acces = new Acces(plaque, date, operateur.getUsername(), filecontent);
+            Acces acces = new Acces(plaque, date, operateur.getUsername(), null);
             try {
-                acces.insertAcces();
-                request.setAttribute("acces", acces);
+                int id = acces.insertAcces(filecontent);
+                request.setAttribute("accesID", id);
+                request.setAttribute("plaque", plaque);
+                request.setAttribute("operateur", operateur.getUsername());
                 Voiture voiture = Voiture.find(plaque);
-                request.setAttribute("voiture", voiture);
+                request.setAttribute("marque", voiture.getMarque());
+                request.setAttribute("serie", voiture.getSerie());
                 Proprietaire proprietaire = Proprietaire.find(voiture.getProprietaire());
-                request.setAttribute("proprietaire", proprietaire);
-                forward(request, response, "/Result.jsp");
+                request.setAttribute("nom", proprietaire.getNom());
+                request.setAttribute("prenom", proprietaire.getPrenom());
+                request.setAttribute("age", proprietaire.getAge());
+                forward(request, response, "/operateur/Result.jsp");
 
             } catch (SQLException e) {
                 request.setAttribute("error", e.getMessage());
