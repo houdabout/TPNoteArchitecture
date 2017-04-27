@@ -1,10 +1,18 @@
 package com.model;
 
+/**
+ * Created with magic
+ * User: elmoutaraji mohammed et houda boutbib
+ * Date: 27/04/2017 19:14
+ * Project: TPNoteArchitecture
+ */
 import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServlet;
 
 public class Acces {
 
@@ -14,6 +22,10 @@ public class Acces {
     private String operateur;
     private Blob image;
 
+    /**
+     * @param plaque date operateur image
+     * constructor
+     */
     public Acces(String plaque, Date date, String operateur, Blob image) {
         this.plaque = plaque;
         this.date = date;
@@ -21,49 +33,85 @@ public class Acces {
         this.image = image;
     }
 
+    /**
+     * default constructor
+     */
     public Acces() {
     }
 
+     /**
+     *@return plaque
+     */
     public String getPlaque() {
         return plaque;
     }
 
+    /**
+     *@param plaque
+     */
     public void setPlaque(String plaque) {
         this.plaque = plaque;
     }
 
+    /**
+     *@return date
+     */
     public Date getDate() {
         return date;
     }
 
+    /**
+     *@param date
+     */
     public void setDate(Date date) {
         this.date = date;
     }
 
+    /**
+     *@return operateur
+     */
     public String getOperateur() {
         return operateur;
     }
 
+    /**
+     *@param operateur
+     */
     public void setOperateur(String operateur) {
         this.operateur = operateur;
     }
 
+    /**
+     *@return image
+     */
     public Blob getImage() {
         return image;
     }
 
+    /**
+     *@param image
+     */
     public void setImage(Blob image) {
         this.image = image;
     }
 
+    /**
+     *@return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *@rparam id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     *save access
+     */
     public int insertAcces(InputStream image) throws SQLException {
         int id;
         try {
@@ -115,6 +163,9 @@ public class Acces {
         c.close();
         return acces;
     }
+    /**
+     *trouver les acces entre deux date
+     */
 
     public static List<Acces> findBetweenDates(Date date1, Date date2) throws SQLException {
         List<Acces> accesList = new ArrayList<>();

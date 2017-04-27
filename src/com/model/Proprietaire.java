@@ -1,5 +1,10 @@
 package com.model;
-
+/**
+ * Created with magic
+ * User: elmoutaraji mohammed et houda boutbib
+ * Date: 27/04/2017 19:14
+ * Project: TPNoteArchitecture
+ */
 import java.sql.*;
 
 public class Proprietaire {
@@ -9,9 +14,16 @@ public class Proprietaire {
     private String prenom;
     private int age;
 
+    /**
+     * default constructor
+     */
     public Proprietaire() {
     }
 
+    /**
+     * @param id nom prenom age
+     * consructor
+     */
     public Proprietaire(int id, String nom, String prenom, int age) {
         this.id = id;
         this.nom = nom;
@@ -19,38 +31,62 @@ public class Proprietaire {
         this.age = age;
     }
 
+    /**
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * @return nom
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * @param nom
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
-
+    /**
+     * @return prenom
+     */
     public String getPrenom() {
         return prenom;
     }
-
+    /**
+     * @param prenom
+     */
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
-
+    /**
+     * @return age
+     */
     public int getAge() {
         return age;
     }
 
+    /**
+     * @param age
+     */
     public void setAge(int age) {
         this.age = age;
     }
 
+    /**
+     * get informations from proprietaire
+     */
     public static Proprietaire find(int id) throws SQLException {
         Proprietaire proprietaire = null;
         try {

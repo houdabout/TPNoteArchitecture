@@ -8,8 +8,8 @@ import java.io.IOException;
 
 /**
  * Created with magic
- * User: simoe
- * Date: 27/04/2017 19:05
+ * User: elmoutaraji mohammed et houda boutbib
+ * Date: 27/04/2017 19:14
  * Project: TPNoteArchitecture
  */
 public class LoginFilter implements Filter {
@@ -19,6 +19,9 @@ public class LoginFilter implements Filter {
     public void destroy() {
     }
 
+    /**
+     * get informations of authentification
+     */
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
