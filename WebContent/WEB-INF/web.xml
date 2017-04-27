@@ -20,4 +20,14 @@
     <servlet-name>AccesServlet</servlet-name>
     <url-pattern>/AccesServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchAccesServlet</display-name>
+    <servlet-name>SearchAccesServlet</servlet-name>
+    <servlet-class>com.login.SearchAccesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchAccesServlet</servlet-name>
+    <url-pattern>/SearchAccesServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
