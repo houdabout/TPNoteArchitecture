@@ -6,11 +6,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Insert title here</title>
 </head>
-<body BGCOLOR= #FBEFEF>
+<body BGCOLOR=#FBEFEF>
 
 <h1>Access car</h1>
 
-<form action="" method="get">
+<form action="AccesServlet" method="post" enctype="multipart/form-data">
 
     Importer image : <input type="file" name="img"/>
     <label>
@@ -20,7 +20,6 @@
 
     <br/><input type="submit" value="visualiser"/>
 </form>
-
 
 </body>
 </html>

@@ -29,7 +29,7 @@ public class Operateur {
             System.exit(1);
         }
         Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/parking", "root", "");
-        PreparedStatement ps = c.prepareStatement("SELECT op FROM Operateur op WHERE username=? AND password=?;");
+        PreparedStatement ps = c.prepareStatement("SELECT * FROM Operateur WHERE username=? AND password=?;");
         ps.setString(1, username);
         ps.setString(2, password);
         ResultSet set = ps.executeQuery();
